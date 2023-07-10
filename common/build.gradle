@@ -21,8 +21,6 @@ android {
         minSdk 21
         targetSdk 33
         consumerProguardFiles "consumer-rules.pro"
-        buildConfigField "int", "versionCode", versionCode
-        buildConfigField "String", "versionName", "\"$versionName\""
     }
 
     buildTypes {
@@ -39,7 +37,7 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17
     }
-    
+
     buildFeatures {
         dataBinding = true
     }
