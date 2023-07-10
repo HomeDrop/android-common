@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ffde2c</color>
+    <color name="colorPrimaryDark">#FBC02D</color>
+    <color name="colorAccent">#FABC74</color>
+    <color name="colorAccent2">#EB5F5D</color>
+    <color name="colorAccent3">#FFAD85</color>
+    <color name="colorAccent4">#5DBEE7</color>
+    <color name="colorAccent5">#9FD6B7</color>
+    <color name="colorAccent6">#5D85E7</color>
+
+    <color name="red">#EB5F5D</color>
+
+    <color name="background">#f9f9f9</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="grey">#8B8B8B</color>
+    <color name="green">#65D866</color>
+
+    <color name="chatBubble">#0040FF</color>
+    <color name="chatBubbleOther">#F5F6FA</color>
+    <color name="chatInputBox">#F5F6FA</color>
+
+</resources>

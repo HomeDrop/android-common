@@ -1,0 +1,43 @@
+<resources>
+
+    <style name="BottomSheetStyle" parent="Theme.Design.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+
+    <style name="ClickableImageView">
+        <item name="android:foreground">?attr/actionBarItemBackground</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="BasePopupMenu" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="popupMenuBackground">@drawable/bg_popup</item>
+    </style>
+
+    <style name="DialogFullScreen">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <style name="fab_square_style" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerSize">20%</item>
+    </style>
+    
+    <style name="NonEditableTextField">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:focusable">false</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:editable">false</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+
+</resources>

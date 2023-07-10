@@ -1,0 +1,86 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'maven-publish'
+    id 'org.jetbrains.kotlin.android'
+}
+
+def githubProperties = new Properties()
+githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
+
+def packageName = "com.homedrop.common"
+def versionCode = "1"
+def versionName = "1.0.0"
+
+android {
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 33
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17
+    }
+    buildFeatures {
+        dataBinding = true
+    }
+
+    namespace packageName
+
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
+}
+
+kotlin {
+    jvmToolchain(17)
+}
+
+publishing {
+    publications {
+        bar(MavenPublication) {
+            groupId packageName
+            artifactId "common"
+            version versionName
+            artifact("$buildDir/outputs/aar/common-release.aar")
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/homedrop/android-common")
+            credentials {
+                username = githubProperties['gpr.usr'] ?: System.getenv("GPR_USER")
+                password = githubProperties['gpr.key'] ?: System.getenv("GPR_API_KEY")
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation "com.google.dagger:hilt-android:2.45"
+    implementation 'androidx.core:core-ktx:1.10.1'
+    kapt "com.google.dagger:hilt-compiler:2.45"
+    implementation 'com.github.bumptech.glide:glide:4.14.2'
+    kapt 'com.github.bumptech.glide:compiler:4.14.2'
+    implementation "androidx.fragment:fragment-ktx:1.6.0"
+}
